@@ -55,24 +55,17 @@ export class GameEngine {
     private startGame() {
         this.doorClosed.interactive = true;
         let xLimit = window.innerWidth / 2;
+
         console.log(this.secredCode);
-        console.log(this.secredCode2);
-        console.log(this.doorClosed);
         const self = this;
         this.doorClosed.on("pointertap", function (e) {
             let clickedPosition = e.data.global.x;
-            console.log(window.innerWidth / 2);
-            console.log(clickedPosition);
 
             if (clickedPosition > xLimit) {
                 self.Add("clockwise");
-                console.log(self.userInput.length);
-                console.log(self.secredCode2.length);
                 animation.restart();
             } else {
                 self.Add("counterclockwise");
-                console.log(self.userInput.length);
-                console.log(self.secredCode2.length);
                 animation2.restart();
             }
         });
@@ -237,11 +230,11 @@ export class GameEngine {
             }
         }
         if (win) {
-            console.log("You win");
+
             this.mainScreen.visible = false;
             this.endScreen.visible = true;
         } else {
-            console.log("You loose");
+
 
             this.userInput = [];
             this.secredCode2 = [];
@@ -259,7 +252,7 @@ export class GameEngine {
         };
         if (this.userInput.length < this.secredCode2.length) {
             this.userInput.push(newStep);
-            console.log("add");
+
         } else {
             this.checkCode();
         }
